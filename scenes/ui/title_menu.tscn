@@ -1,0 +1,364 @@
+[gd_scene format=3 uid="uid://dw4s806nsdvcm"]
+
+[ext_resource type="Script" uid="uid://dvwuomwsduttn" path="res://scripts/title_menu.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://cy0xc3pbkvhyv" path="res://assets/ui/title_menu_bg.png" id="2_bg"]
+[ext_resource type="Theme" uid="uid://njqnuwqq50lu" path="res://assets/ui/menu_theme.tres" id="3_theme"]
+[ext_resource type="Script" uid="uid://bif41gem2kpk3" path="res://scripts/menu_rain.gd" id="4_rain"]
+[ext_resource type="Texture2D" uid="uid://dece06gwerqwt" path="res://assets/ui/menu_selector.png" id="5_selector"]
+[ext_resource type="Texture2D" uid="uid://bd0fdt251ftld" path="res://assets/characters/narrator_detective.png" id="6_narrator"]
+
+[node name="TitleMenu" type="CanvasLayer" unique_id=475195831]
+script = ExtResource("1_script")
+
+[node name="Root" type="Control" parent="." unique_id=1605486624]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_theme")
+
+[node name="Background" type="TextureRect" parent="Root" unique_id=619457578]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_bg")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="RainOverlay" type="Control" parent="Root" unique_id=659262885]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("4_rain")
+
+[node name="Shade" type="ColorRect" parent="Root" unique_id=2039625395]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.008, 0.009, 0.025, 0.32)
+
+[node name="NarratorAccent" type="TextureRect" parent="Root" unique_id=888631922]
+unique_name_in_owner = true
+modulate = Color(0.32, 0.39, 0.52, 0.32)
+texture_filter = 1
+layout_mode = 0
+offset_left = 20.0
+offset_top = 120.0
+offset_right = 68.0
+offset_bottom = 168.0
+mouse_filter = 2
+texture = ExtResource("6_narrator")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TopLine" type="ColorRect" parent="Root" unique_id=1664044118]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+mouse_filter = 2
+color = Color(0.52, 0.43, 0.32, 0.65)
+
+[node name="SafeMargin" type="MarginContainer" parent="Root" unique_id=894758120]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 13.0
+offset_top = 11.0
+offset_right = -13.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Content" type="HBoxContainer" parent="Root/SafeMargin" unique_id=1392273342]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TitleBlock" type="VBoxContainer" parent="Root/SafeMargin/Content" unique_id=1423820354]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(168, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 5
+
+[node name="Eyebrow" type="Label" parent="Root/SafeMargin/Content/TitleBlock" unique_id=729572395]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.56, 0.61, 0.72, 1)
+theme_override_font_sizes/font_size = 7
+text = "A STORY IN THE RAIN"
+
+[node name="Title" type="Label" parent="Root/SafeMargin/Content/TitleBlock" unique_id=226714750]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.92, 0.84, 1)
+theme_override_colors/font_outline_color = Color(0.015, 0.015, 0.035, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 24
+text = "BENEATH
+THE PEEL"
+
+[node name="Divider" type="ColorRect" parent="Root/SafeMargin/Content/TitleBlock" unique_id=2068786697]
+custom_minimum_size = Vector2(124, 1)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.53, 0.43, 0.33, 0.75)
+
+[node name="Hook" type="Label" parent="Root/SafeMargin/Content/TitleBlock" unique_id=1557640899]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.72, 0.74, 0.79, 1)
+theme_override_font_sizes/font_size = 8
+text = "Something beneath the temple is awake."
+autowrap_mode = 2
+
+[node name="Spacer" type="Control" parent="Root/SafeMargin/Content/TitleBlock" unique_id=287715782]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Whisper" type="Label" parent="Root/SafeMargin/Content/TitleBlock" unique_id=72530179]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.39, 0.44, 0.54, 1)
+theme_override_font_sizes/font_size = 6
+text = "Listen carefully."
+
+[node name="MenuPanel" type="PanelContainer" parent="Root/SafeMargin/Content" unique_id=852620193]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(106, 0)
+layout_mode = 2
+
+[node name="Menu" type="VBoxContainer" parent="Root/SafeMargin/Content/MenuPanel" unique_id=1825885553]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="MenuTitle" type="Label" parent="Root/SafeMargin/Content/MenuPanel/Menu" unique_id=171807552]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.82, 0.8, 0.72, 1)
+theme_override_font_sizes/font_size = 8
+text = "STORY"
+horizontal_alignment = 1
+
+[node name="MenuDivider" type="ColorRect" parent="Root/SafeMargin/Content/MenuPanel/Menu" unique_id=565213243]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.31, 0.31, 0.39, 0.9)
+
+[node name="BeginButton" type="Button" parent="Root/SafeMargin/Content/MenuPanel/Menu" unique_id=498020393]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+text = "BEGIN"
+
+[node name="OptionsButton" type="Button" parent="Root/SafeMargin/Content/MenuPanel/Menu" unique_id=463499093]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+text = "OPTIONS"
+
+[node name="CreditsButton" type="Button" parent="Root/SafeMargin/Content/MenuPanel/Menu" unique_id=740548874]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+text = "CREDITS"
+
+[node name="QuitButton" type="Button" parent="Root/SafeMargin/Content/MenuPanel/Menu" unique_id=817397651]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+text = "QUIT"
+
+[node name="MenuSpacer" type="Control" parent="Root/SafeMargin/Content/MenuPanel/Menu" unique_id=1584076174]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MenuHint" type="Label" parent="Root/SafeMargin/Content/MenuPanel/Menu" unique_id=1107587942]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.43, 0.5, 1)
+theme_override_font_sizes/font_size = 6
+text = "ENTER  SELECT"
+horizontal_alignment = 1
+
+[node name="Selector" type="TextureRect" parent="Root" unique_id=950334477]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 0
+offset_left = 190.0
+offset_top = 54.0
+offset_right = 200.0
+offset_bottom = 64.0
+mouse_filter = 2
+texture = ExtResource("5_selector")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="OptionsOverlay" type="Control" parent="Root" unique_id=889846258]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Shade" type="ColorRect" parent="Root/OptionsOverlay" unique_id=98488787]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.78)
+
+[node name="Panel" type="PanelContainer" parent="Root/OptionsOverlay" unique_id=1257390424]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -105.0
+offset_top = -66.0
+offset_right = 105.0
+offset_bottom = 66.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Layout" type="VBoxContainer" parent="Root/OptionsOverlay/Panel" unique_id=1571062915]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Title" type="Label" parent="Root/OptionsOverlay/Panel/Layout" unique_id=322791472]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.93, 0.88, 0.74, 1)
+theme_override_font_sizes/font_size = 11
+text = "OPTIONS"
+horizontal_alignment = 1
+
+[node name="VolumeRow" type="HBoxContainer" parent="Root/OptionsOverlay/Panel/Layout" unique_id=581635168]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Label" type="Label" parent="Root/OptionsOverlay/Panel/Layout/VolumeRow" unique_id=1124119363]
+custom_minimum_size = Vector2(74, 0)
+layout_mode = 2
+text = "MASTER VOLUME"
+
+[node name="MasterSlider" type="HSlider" parent="Root/OptionsOverlay/Panel/Layout/VolumeRow" unique_id=872597016]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(76, 12)
+layout_mode = 2
+size_flags_horizontal = 3
+value = 82.0
+
+[node name="VolumeValue" type="Label" parent="Root/OptionsOverlay/Panel/Layout/VolumeRow" unique_id=1277048776]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(27, 0)
+layout_mode = 2
+text = "82%"
+horizontal_alignment = 2
+
+[node name="FullscreenToggle" type="CheckButton" parent="Root/OptionsOverlay/Panel/Layout" unique_id=2106379988]
+unique_name_in_owner = true
+layout_mode = 2
+text = "FULLSCREEN"
+
+[node name="Controls" type="Label" parent="Root/OptionsOverlay/Panel/Layout" unique_id=747773123]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.55, 0.58, 0.65, 1)
+theme_override_font_sizes/font_size = 6
+text = "WASD / ARROWS  MOVE    E / SPACE  INTERACT    ESC  PAUSE"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Note" type="Label" parent="Root/OptionsOverlay/Panel/Layout" unique_id=483714922]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.46, 0.49, 0.56, 1)
+theme_override_font_sizes/font_size = 6
+text = "Changes apply immediately."
+horizontal_alignment = 1
+
+[node name="OptionsBackButton" type="Button" parent="Root/OptionsOverlay/Panel/Layout" unique_id=312531800]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 2
+text = "BACK"
+
+[node name="InfoOverlay" type="Control" parent="Root" unique_id=381405409]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Shade" type="ColorRect" parent="Root/InfoOverlay" unique_id=1937014017]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.78)
+
+[node name="Panel" type="PanelContainer" parent="Root/InfoOverlay" unique_id=822274991]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -108.0
+offset_top = -61.0
+offset_right = 108.0
+offset_bottom = 61.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Layout" type="VBoxContainer" parent="Root/InfoOverlay/Panel" unique_id=1361762601]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Title" type="Label" parent="Root/InfoOverlay/Panel/Layout" unique_id=895277811]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.93, 0.88, 0.74, 1)
+theme_override_font_sizes/font_size = 11
+text = "CREDITS"
+horizontal_alignment = 1
+
+[node name="Body" type="Label" parent="Root/InfoOverlay/Panel/Layout" unique_id=1511540213]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.8, 0.8, 0.76, 1)
+theme_override_font_sizes/font_size = 7
+text = "Detective narrator and character artwork by Amaan
+Environment foundation: Kenney Tiny Dungeon (CC0)
+Story and Idea by Shreeshanth
+Development and Scripting by Fazin"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="InfoBackButton" type="Button" parent="Root/InfoOverlay/Panel/Layout" unique_id=1357828327]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 2
+text = "BACK"

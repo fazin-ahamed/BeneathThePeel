@@ -1,0 +1,75 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/capture_menu.gd" id="1_script"]
+[ext_resource type="Theme" path="res://assets/ui/menu_theme.tres" id="2_theme"]
+
+[node name="CaptureMenu" type="CanvasLayer"]
+script = ExtResource("1_script")
+
+[node name="Root" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_theme")
+
+[node name="Shade" type="ColorRect" parent="Root"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.015, 0.006, 0.018, 0.9)
+
+[node name="Panel" type="PanelContainer" parent="Root"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -86.0
+offset_top = -51.0
+offset_right = 86.0
+offset_bottom = 51.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Layout" type="VBoxContainer" parent="Root/Panel"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Title" type="Label" parent="Root/Panel/Layout"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.35, 0.31, 1)
+theme_override_font_sizes/font_size = 16
+text = "CAUGHT"
+horizontal_alignment = 1
+
+[node name="Line" type="ColorRect" parent="Root/Panel/Layout"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+color = Color(0.61, 0.18, 0.18, 0.9)
+
+[node name="Message" type="Label" parent="Root/Panel/Layout"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.78, 0.76, 0.72, 1)
+theme_override_font_sizes/font_size = 7
+text = "The tunnels heard every footstep."
+horizontal_alignment = 1
+
+[node name="RetryButton" type="Button" parent="Root/Panel/Layout"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+text = "TRY AGAIN"
+
+[node name="TitleButton" type="Button" parent="Root/Panel/Layout"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+text = "RETURN TO TITLE"
